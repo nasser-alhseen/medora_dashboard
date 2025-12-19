@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import cover from '../assets/login_cover.jpg'
 import useAuth from '../hooks/useAuth'
+import { useI18n } from '../context/LocaleProvider.jsx'
 import './login.css'
 
 export default function Login() {
   const { login } = useAuth()
+  const { t, dir } = useI18n()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [submitting, setSubmitting] = useState(false)
@@ -30,14 +32,14 @@ export default function Login() {
       </div>
       <div className="login-right">
         <div className="login-card">
-          <h1>أهلاً بعودتك</h1>
-          <p className="subtitle">تسجيل الدخول إلى لوحة التحكم</p>
-          <form onSubmit={onSubmit} className="login-form" dir="rtl">
+          <h1>{t('welcome')}</h1>
+          <p className="subtitle">{t('subtitle')}</p>
+          <form onSubmit={onSubmit} className="login-form" dir={dir}>
             <label className="field">
-              <span>البريد الإلكتروني</span>
+              <span>{t('email')}</span>
               <input
                 type="email"
-                placeholder="البريد الإلكتروني"
+                placeholder={t('email')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -45,10 +47,10 @@ export default function Login() {
               />
             </label>
             <label className="field">
-              <span>كلمة المرور</span>
+              <span>{t('password')}</span>
               <input
                 type="password"
-                placeholder="كلمة المرور"
+                placeholder={t('password')}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -57,12 +59,12 @@ export default function Login() {
             </label>
             <div className="forgot">
               <a href="#" onClick={(e) => e.preventDefault()}>
-                نسيت كلمة المرور؟
+                {t('forgot')}
               </a>
             </div>
             {error && <div className="error">{error}</div>}
             <button className="submit" type="submit" disabled={submitting}>
-              {submitting ? 'جاري التسجيل...' : 'تسجيل الدخول'}
+              {submitting ? t('loggingIn') : t('login')}
             </button>
           </form>
         </div>
