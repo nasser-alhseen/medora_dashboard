@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import cover from '../assets/login_cover.jpg'
-import useAuth from '../hooks/useAuth'
 import { useI18n } from '../context/LocaleProvider.jsx'
+import useAuth from '../hooks/useAuth'
 import './login.css'
 
 export default function Login() {

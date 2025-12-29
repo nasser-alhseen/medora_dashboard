@@ -11,7 +11,6 @@ const messages = {
     loggingIn: 'جاري التسجيل...',
     logout: 'تسجيل الخروج',
     helloMedora: 'مرحبا بك في مدورا',
-    simpleAfter: 'هذه صفحة بسيطة بعد تسجيل الدخول.',
   },
   en: {
     welcome: 'Welcome back',
@@ -23,7 +22,6 @@ const messages = {
     loggingIn: 'Signing in...',
     logout: 'Logout',
     helloMedora: 'Welcome to Medora',
-    simpleAfter: 'This is a simple page after login.',
   },
 }
 
